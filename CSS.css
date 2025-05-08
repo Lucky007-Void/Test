@@ -1,3 +1,35 @@
-body {
-  background-color: lightblue; /* ตั้งพื้นหลังเป็นสีฟ้า */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เว็บไซต์พื้นหลังสีและ GIF</title>
+  <style>
+    /* กำหนดสีพื้นหลัง */
+    body {
+      background-color: #f0f0f0; /* สีพื้นหลังเทาอ่อน */
+      margin: 0;
+      height: 100vh; /* ให้ครอบคลุมทั้งหน้าจอ */
+      display: flex;
+      justify-content: center; /* จัดกลางแนวนอน */
+      align-items: center; /* จัดกลางแนวตั้ง */
+    }
+
+    /* ตั้งค่าให้ GIF อยู่ตรงกลาง */
+    .gif-container {
+      position: relative;
+    }
+
+    /* กำหนดขนาดของ GIF */
+    .gif-container img {
+      width: 150px; /* ขนาด GIF (ปรับตามต้องการ) */
+      height: auto; /* ให้สูงของ GIF ขึ้นอยู่กับอัตราส่วนของภาพ */
+    }
+  </style>
+</head>
+<body>
+  <div class="gif-container">
+    <img src="https://shortpixel.com/blog/wp-content/uploads/2023/12/nyan-cat.gif" alt="GIF animation"> <!-- เปลี่ยน URL เป็นลิงก์ของ GIF ของคุณ -->
+  </div>
+</body>
+</html>
