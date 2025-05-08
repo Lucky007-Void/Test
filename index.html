@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hello Lucky</title>
   <style>
-    /* กำหนดสีพื้นหลัง */
     body {
-      background-color: #196f3d;
+      background-color: #a8e6cf; /* พื้นหลังสีเขียวมิ้นต์ */
       margin: 0;
       height: 100vh;
       display: flex;
-      justify-content: center; /* จัดกลางแนวนอน */
-      align-items: center; /* จัดกลางแนวตั้ง */
-      font-family: Arial, sans-serif; /* กำหนดฟอนต์ */
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      animation: fadeIn 1s ease-in;
     }
 
-    /* กล่องหลักที่ครอบ GIF และข้อความ */
     .container {
       display: flex;
-      flex-direction: column; /* ตั้งแนวตั้ง */
+      flex-direction: column;
       justify-content: center;
-      align-items: center; /* จัดกลาง */
-      text-align: center;
+      align-items: center;
+      background-color: #ffffffcc; /* สีขาวใส */
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    /* ตั้งค่าให้ GIF อยู่ตรงกลาง */
+    .container:hover {
+      transform: scale(1.03);
+    }
+
     .gif-container img {
-      width: 222px; /* ขนาด GIF (ปรับตามต้องการ) */
-      height: auto; /* ให้สูงของ GIF ขึ้นอยู่กับอัตราส่วนของภาพ */
-      margin-bottom: 10px; /* เว้นระยะห่างจากข้อความ */
+      width: 200px;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    /* ตั้งค่าข้อความ */
     .text-container p {
-      font-size: 18px;
-      color: #333; /* สีข้อความ */
+      font-size: 22px;
+      color: #4b4b4b;
       margin: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="gif-container">
-      <img src="https://media.tenor.com/GeKfE4wmsI0AAAAj/mad-pepe.gif" alt="GIF animation">
+      <img src="https://media.tenor.com/GeKfE4wmsI0AAAAj/mad-pepe.gif" alt="Cute Pepe waving">
     </div>
     <div class="text-container">
       <p>𝑲𝒖𝒚</p>
