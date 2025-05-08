@@ -3,33 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เว็บไซต์พื้นหลังสีและ GIF</title>
+  <title>Hello World</title>
   <style>
     /* กำหนดสีพื้นหลัง */
     body {
-      background-color: #f0f0f0; /* สีพื้นหลังเทาอ่อน */
+      background-color: #16079b; /* สีพื้นหลังเทาอ่อน */
       margin: 0;
-      height: 100vh; /* ให้ครอบคลุมทั้งหน้าจอ */
+      height: 100vh;
       display: flex;
       justify-content: center; /* จัดกลางแนวนอน */
       align-items: center; /* จัดกลางแนวตั้ง */
+      font-family: Arial, sans-serif; /* กำหนดฟอนต์ */
+    }
+
+    /* กล่องหลักที่ครอบ GIF และข้อความ */
+    .container {
+      display: flex;
+      flex-direction: column; /* ตั้งแนวตั้ง */
+      justify-content: center;
+      align-items: center; /* จัดกลาง */
+      text-align: center;
     }
 
     /* ตั้งค่าให้ GIF อยู่ตรงกลาง */
-    .gif-container {
-      position: relative;
-    }
-
-    /* กำหนดขนาดของ GIF */
     .gif-container img {
       width: 150px; /* ขนาด GIF (ปรับตามต้องการ) */
       height: auto; /* ให้สูงของ GIF ขึ้นอยู่กับอัตราส่วนของภาพ */
+      margin-bottom: 10px; /* เว้นระยะห่างจากข้อความ */
+    }
+
+    /* ตั้งค่าข้อความ */
+    .text-container p {
+      font-size: 18px;
+      color: #333; /* สีข้อความ */
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <div class="gif-container">
-    <img src="https://shortpixel.com/blog/wp-content/uploads/2023/12/nyan-cat.gif" alt="GIF animation"> <!-- เปลี่ยน URL เป็นลิงก์ของ GIF ของคุณ -->
+  <div class="container">
+    <div class="gif-container">
+      <img src="https://shortpixel.com/blog/wp-content/uploads/2023/12/nyan-cat.gif" alt="GIF animation">
+    </div>
+    <div class="text-container">
+      <p>ข้อความอยู่ข้างล่างของ GIF</p>
+    </div>
   </div>
 </body>
 </html>
