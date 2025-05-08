@@ -3,63 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hello Lucky</title>
+  <title>Lucky's Cute Page 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #a8e6cf; /* พื้นหลังสีเขียวมิ้นต์ */
+      background: linear-gradient(to bottom right, #ffe6f7, #ccfff5);
+      background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      animation: fadeIn 1s ease-in;
+      font-family: 'Patrick Hand', cursive;
+      animation: fadeIn 1.2s ease-in-out;
+      position: relative;
     }
 
     .container {
+      background: #ffffffdd;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      background-color: #ffffffcc; /* สีขาวใส */
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .container:hover {
-      transform: scale(1.03);
+      text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .gif-container img {
-      width: 200px;
+      width: 220px;
       height: auto;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .text-container p {
-      font-size: 22px;
-      color: #4b4b4b;
+      font-size: 26px;
+      color: #000000;
       margin: 0;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    .button-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .cute-button {
+      background-color: #57d6e7;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(53, 134, 121, 0.6);
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .cute-button:hover {
+      background-color: #5aa8d4;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      font-size: 28px;
+      animation: floatUp 4s infinite ease-in;
+      color: #000000;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes floatUp {
+      0% { transform: translate(-50%, 0); opacity: 1; }
+      100% { transform: translate(-50%, -200px); opacity: 0; }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.5); opacity: 0.8; }
+    }
+
+    .sparkle {
+      content: "✨";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      font-size: 40px;
+      animation: sparkle 2s infinite ease-in-out;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .escape-button {
+      position: absolute;
+      transition: left 0.3s ease, top 0.3s ease;
+    }
   </style>
 </head>
 <body>
+  <div class="sparkle">✨</div>
+  <div class="floating-heart">🖕</div>
+
   <div class="container">
     <div class="gif-container">
-      <img src="https://media.tenor.com/GeKfE4wmsI0AAAAj/mad-pepe.gif" alt="Cute Pepe waving">
+      <img src="https://media.tenor.com/GeKfE4wmsI0AAAAj/mad-pepe.gif" alt="Cute Pepe">
     </div>
     <div class="text-container">
-      <p>𝑲𝒖𝒚</p>
+      <p>เล่นเกมมั้ย~</p>
+    </div>
+    <div class="button-container">
+      <button class="cute-button">Yes</button>
+      <button class="cute-button escape-button" id="escapeBtn">No</button>
     </div>
   </div>
+
+  <script>
+    const escapeBtn = document.getElementById('escapeBtn');
+
+    escapeBtn.addEventListener('click', () => {
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+      const btnWidth = escapeBtn.offsetWidth;
+      const btnHeight = escapeBtn.offsetHeight;
+
+      const maxX = containerRect.width - btnWidth;
+      const maxY = containerRect.height - btnHeight;
+
+      const randX = Math.random() * maxX;
+      const randY = Math.random() * maxY;
+
+      escapeBtn.style.left = `${randX}px`;
+      escapeBtn.style.top = `${randY}px`;
+    });
+
+    // Redirect to another page when "Yes" button is clicked
+    const yesButton = document.querySelector('.cute-button');
+
+    yesButton.addEventListener('click', () => {
+      window.location.href = 'https://lucky007-void.github.io/Test2/'; // Link to the new page
+    });
+  </script>
 </body>
 </html>
