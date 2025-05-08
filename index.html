@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucky's Cute Page 💖</title>
+  <title>Lucky</title>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
     * {
@@ -11,18 +11,18 @@
     }
 
     body {
-      background: linear-gradient(to bottom right, #ffe6f7, #ccfff5);
-      background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Patrick Hand', cursive;
-      animation: fadeIn 1.2s ease-in-out;
-      position: relative;
-    }
+    background-color: #a8e6cf;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Patrick Hand', cursive;
+    color: #a8e6cf; /* เปลี่ยนสีข้อความเป็นสีชมพู */
+    animation: fadeIn 1.2s ease-in-out;
+    position: relative;
+     }
 
     .container {
       background: #ffffffdd;
@@ -124,7 +124,7 @@
 
   <div class="container">
     <div class="gif-container">
-      <img src="https://media.tenor.com/GeKfE4wmsI0AAAAj/mad-pepe.gif" alt="Cute Pepe">
+      <img src="https://media1.tenor.com/m/-Fxuntfk-WQAAAAd/penguin-pudgy.gif" alt="Gif">
     </div>
     <div class="text-container">
       <p>เล่นเกมมั้ย~</p>
@@ -154,11 +154,10 @@
       escapeBtn.style.top = `${randY}px`;
     });
 
-    // Redirect to another page when "Yes" button is clicked
     const yesButton = document.querySelector('.cute-button');
 
     yesButton.addEventListener('click', () => {
-      window.location.href = 'https://lucky007-void.github.io/Test2/'; // Link to the new page
+      window.location.href = 'https://lucky007-void.github.io/Test2/';
     });
   </script>
 </body>
