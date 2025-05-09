@@ -11,18 +11,18 @@
     }
 
     body {
-    background-color: #a8e6cf;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Patrick Hand', cursive;
-    color: #a8e6cf; /* เปลี่ยนสีข้อความเป็นสีชมพู */
-    animation: fadeIn 1.2s ease-in-out;
-    position: relative;
-     }
+      background-color: #a8e6cf;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Patrick Hand', cursive;
+      color: #a8e6cf;
+      animation: fadeIn 1.2s ease-in-out;
+      position: relative;
+    }
 
     .container {
       background: #ffffffdd;
@@ -55,7 +55,7 @@
     .button-container {
       margin-top: 25px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       width: 100%;
     }
 
@@ -69,21 +69,10 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(53, 134, 121, 0.6);
       transition: background 0.3s;
-      position: relative;
     }
 
     .cute-button:hover {
       background-color: #5aa8d4;
-    }
-
-    .floating-heart {
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      font-size: 28px;
-      animation: floatUp 4s infinite ease-in;
-      color: #000000;
-      z-index: 1;
     }
 
     @keyframes fadeIn {
@@ -92,13 +81,22 @@
     }
 
     @keyframes floatUp {
-      0% { transform: translate(-50%, 0); opacity: 1; }
-      100% { transform: translate(-50%, -200px); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) scale(1.5);
+        opacity: 0;
+      }
     }
 
-    @keyframes sparkle {
-      0%, 100% { transform: scale(1); opacity: 0.4; }
-      50% { transform: scale(1.5); opacity: 0.8; }
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 4s ease-in forwards;
+      pointer-events: none;
+      z-index: 1;
     }
 
     .sparkle {
@@ -112,53 +110,50 @@
       z-index: 0;
     }
 
-    .escape-button {
-      position: absolute;
-      transition: left 0.3s ease, top 0.3s ease;
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.5); opacity: 0.8; }
     }
   </style>
 </head>
 <body>
   <div class="sparkle">✨</div>
-  <div class="floating-heart">🖕</div>
 
   <div class="container">
     <div class="gif-container">
       <img src="https://media.tenor.com/FTOSKbscoloAAAAj/loverlyu-huh.gif" alt="Gif">
     </div>
     <div class="text-container">
-      <p>???</p>
+      <p>Will you be my player 2?</p>
     </div>
     <div class="button-container">
-      <button class="cute-button">Yes</button>
-      <button class="cute-button escape-button" id="escapeBtn">No</button>
+      <button class="cute-button" id="Btn">Yes</button>
     </div>
   </div>
 
   <script>
-    const escapeBtn = document.getElementById('escapeBtn');
-
-    escapeBtn.addEventListener('click', () => {
-      const container = document.querySelector('.container');
-      const containerRect = container.getBoundingClientRect();
-      const btnWidth = escapeBtn.offsetWidth;
-      const btnHeight = escapeBtn.offsetHeight;
-
-      const maxX = containerRect.width - btnWidth;
-      const maxY = containerRect.height - btnHeight;
-
-      const randX = Math.random() * maxX;
-      const randY = Math.random() * maxY;
-
-      escapeBtn.style.left = `${randX}px`;
-      escapeBtn.style.top = `${randY}px`;
-    });
-
-    const yesButton = document.querySelector('.cute-button');
-
-    yesButton.addEventListener('click', () => {
+    const Button = document.getElementById('Btn');
+    Button.addEventListener('click', () => {
       window.location.href = 'https://lucky007-void.github.io/Test2/';
     });
+
+    // สร้างหัวใจลอยขึ้นแบบสุ่มตำแหน่งรอบจอ
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.bottom = '-30px';
+      heart.style.fontSize = `${Math.random() * 20 + 20}px`;
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+
+    // เรียกฟังก์ชันทุก 300 มิลลิวินาที
+    setInterval(createHeart, 300);
   </script>
 </body>
 </html>
